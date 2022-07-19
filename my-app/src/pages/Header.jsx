@@ -91,22 +91,28 @@ const classes = style();
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleLogOut = () =>{ 
+    const handleLogOut = () => { 
       dispatch(doSignOutUser())
-      history.push(`/HomePage`);
-  }
+      history.push(`./`);
+    }
+
+    const handleGoToUserPage = () => {
+      history.push(`./UserPage`)
+    }
 
     return (
         <AppBar position="static">
         <Toolbar variant="dense" sx={{ display:'flex-end', justifyContent:"space-between"}}> {/* sx={{ justifyContext:'flex-end'}} */}
           <div>
-            <img src={IconPlaceholder} alt="logo placeholder" style={{marginLeft: '20px', marginRight: '20px', width: '40px'}}/>
+            <a href="./">
+              <img src={IconPlaceholder} alt="logo placeholder" style={{marginLeft: '20px', marginRight: '20px', width: '40px'}}/>
+            </a>
           </div>
           <div>
             <Button color="inherit" href="./SignInPage" style={{float: 'right', position: 'right', textAlign: 'right'}} className={classes.signInBtn}> 
               Sign in 
             </Button>
-            <Button color="inherit" href="./HomePage" style={{float: 'right', position: 'right', textAlign: 'right'}} className={classes.signInBtn}>
+            <Button color="inherit" href="./" style={{float: 'right', position: 'right', textAlign: 'right'}} className={classes.signInBtn}>
               Home
             </Button>
           </div>
@@ -136,11 +142,9 @@ const classes = style();
                     onClose={handleClose}
                   >
                     <Divider sx={{ my: 0.5 }} />
-                    
-                    {/* <NavLink to="/UserPage" style={{ textDecoration: 'none', color: 'black' }}>
-                      Profile
-                    </NavLink> */}
-                    <Divider sx={{ my: 0.5 }} />
+                    <div style={{ textDecoration: 'none', color: 'black'}} onClick={handleGoToUserPage}>
+                      User Profile
+                    </div>
                     <div style={{ textDecoration: 'none', color: 'black' }} onClick={handleLogOut}>
                       Log out
                     </div>

@@ -16,7 +16,7 @@ const SignInPage = (props) => {
   
     const handleSubmitClick = () =>{ 
         dispatch(doSignInUser({userName, password}))
-        history.push(`./UserPage`);
+        history.push(`./HomePage`);
     }
 
     // to display the sign-in page
